@@ -11,7 +11,7 @@ app.use(express.static('/')) //
 
 //map
 const mapArray = [
-    "Launchpad", "Ascent", "Low-Earth-Orbit","Lunar Orbit", "Lunar Surface"
+    "Launchpad", "Atmosphere", "Low-Earth-Orbit","Lunar Orbit", "Lunar Surface"
 ]
 
 //data
@@ -28,10 +28,7 @@ let TEST_DATA = [
         craftName: "Andromeda 12",
         deltaV: 3,
         currLocation : mapArray[1],
-        }
-        //added a comment
-    
-    
+        },
 ]
 
 
@@ -56,7 +53,7 @@ app.post('/api/Vehicle', (req, res) => {
     TEST_DATA.push(vehicleObject)
 
     globalID++
-
+    console.log(vehicleObject)
     res.status(201).send(TEST_DATA)
 })
 
@@ -99,7 +96,5 @@ app.put('/api/vehicle/:id/:direction', (req, res) => {
     res.status(200).send(TEST_DATA)
 })
 
-
-
 //open the door to the server
-ViteExpress.listen(app, 2969, () => console.log('launching rockets at: http://localhost:2969'))
+ViteExpress.listen(app, 1969, () => console.log('launching rockets at: http://localhost:1969'))

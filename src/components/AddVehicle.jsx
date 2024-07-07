@@ -3,10 +3,13 @@ import axios from "axios";
 
 function AddVehicle() {
     
-  
+    //const addVehicle = props.addVehicle
+
     return (
       <>
-      <p>Add vehicle form here</p>
+      <button >Add Vehicle</button>
+      <input type="text" name="craftName" placeholder='Untitled Spacecraft 1'/>
+      <input type="text" name="deltaV" placeholder='3'/>
       </>
     )
   }
