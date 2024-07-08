@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import axios from "axios";
 
-function AddVehicle() {
+function AddVehicle(props) {
     
-    //const addVehicle = props.addVehicle
+    const createVehicle = props.createVehicle
 
     return (
       <>
-      <button >Add Vehicle</button> <br /><br />
+      <button onClick={createVehicle}>Add Vehicle</button> <br /><br />
       <label htmlFor="craftName">Craft Name: </label>
       <input type="text" name="craftName" placeholder='Untitled Spacecraft 1'/>
       <br /><br />

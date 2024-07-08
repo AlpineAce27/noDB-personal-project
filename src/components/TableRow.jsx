@@ -16,7 +16,7 @@ const TableRow = (props) => {
   //setting up state values
   const [craftName, setcraftName] = useState(props.craft.craftName)
   const [deltaV, setDeltaV] = useState(props.craft.deltaV)
-  const [location, setLocation] = useState(props.craft.location)
+  const [location, setLocation] = useState(props.craft.currLocation)
 
     return (
         <tr>
