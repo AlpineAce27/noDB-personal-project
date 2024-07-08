@@ -19,6 +19,7 @@ let TEST_DATA = [
         {
         id : 0,
         craftName: "Shuttle 3",
+        launchTime: "2024-07-08-0936-29",
         deltaV: 4,
         currLocation : mapArray[0],
         },
@@ -26,14 +27,16 @@ let TEST_DATA = [
         {
         id: 1,
         craftName: "Andromeda 12",
+        launchTime: "2024-07-03-1858-42",
         deltaV: 3,
         currLocation : mapArray[1],
         },
         {
-            id: 2,
-            craftName: "Luna 4",
-            deltaV: 5,
-            currLocation : mapArray[4],
+        id: 2,
+        craftName: "Luna 4",
+        launchTime: "2024-07-01-2235-04",
+        deltaV: 5,
+        currLocation : mapArray[4],
         },
     ]
 

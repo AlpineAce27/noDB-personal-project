@@ -15,6 +15,7 @@ const TableRow = (props) => {
   
   //setting up state values
   const [craftName, setcraftName] = useState(props.craft.craftName)
+  const [launchTime, setLaunchTime] = useState(props.launchTime)
   const [deltaV, setDeltaV] = useState(props.craft.deltaV)
   const [location, setLocation] = useState(props.craft.currLocation)
 
@@ -22,7 +23,7 @@ const TableRow = (props) => {
         <tr>
             <td><NavButtons/></td>
             <td>{craftName}</td>
-            <td>00:00:00:00</td>
+            <td>{launchTime}</td>
             <td>{location}</td>
             <td>{deltaV}</td>
             <td><DeactivateButton deactivate = {deactivate}/></td>

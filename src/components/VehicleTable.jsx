@@ -31,6 +31,7 @@ const deactivate = (id2kill) => {
           craft = {el}
           key={el.id}
           craftName={el.craftName}
+          launchTime = {el.launchTime}
           deltaV={el.deltaV}
           location = {el.location}
           navigate={() => navigate(el.id, direction)}
