@@ -5,7 +5,7 @@ function AddVehicle(props) {
     
     const createVehicle = props.createVehicle
 
-    
+    //see scott's react-demo-2 in the ft-9 discord channel for details on how to use state values and onclick to use inputs as variables for the axios request
 
     return (
       <>
