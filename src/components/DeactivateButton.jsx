@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function DeactivateButton() {
-
+function DeactivateButton(props) {
+    const deactivate = props.deactivate
     return (
         <>
-            <button>DEACTIVATE</button>
+            <button id="deactivate" onClick={deactivate}>DEACTIVATE</button>
         </>
     )
 }

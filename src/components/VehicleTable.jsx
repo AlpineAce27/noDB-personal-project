@@ -3,6 +3,42 @@ import axios from "axios";
 import TableRow from "./TableRow";
 
 function VehicleTable() {
+  
+  useEffect(() => {
+    getAllVehicles()
+  }, [])
+
+  const [currentData, setCurrentData] = useState([])
+
+  //create a function that uses axios to get TEST_DATA from server
+  const getAllVehicles = () => {
+    axios.get('/api/allVehicles').then((response) => {
+        setCurrentData(response.data)
+    })
+}
+
+//create a function to deactivate a vehicle
+const deactivate = (id2kill) => {
+  axios.delete(`/api/vehicle/${id2kill}`).then((response) => {
+      setCurrentData(response.data)
+  })
+}
+
+ //create an array of table rows
+ const rowsArray = currentData.map((el) => {
+  return (
+      <TableRow
+          craft = {el}
+          key={el.id}
+          craftName={el.craftName}
+          deltaV={el.deltaV}
+          location = {el.location}
+          navigate={() => navigate(el.id, direction)}
+          deactivate={() => deactivate(el.id)}
+          setCurrentData={setCurrentData}
+      />
+  )
+})
 
   return (
     <>
@@ -20,8 +56,7 @@ function VehicleTable() {
         </thead>
     
         <tbody id="vehicles">
-          <TableRow/>
-          <TableRow/>
+        {rowsArray}
         </tbody>
         
       </table>

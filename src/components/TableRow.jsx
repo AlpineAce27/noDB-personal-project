@@ -7,16 +7,25 @@ import axios from 'axios'
 import NavButtons from './NavButtons'
 import DeactivateButton from './DeactivateButton'
 
-const TableRow = () => {
+const TableRow = (props) => {
+  
+    //import the delete row functionality to send down the parent/child chain
+  const deactivate = props.deactivate
+  const setCurrentData = props.setCurrentData
+  
+  //setting up state values
+  const [craftName, setcraftName] = useState(props.craft.craftName)
+  const [deltaV, setDeltaV] = useState(props.craft.deltaV)
+  const [location, setLocation] = useState(props.craft.location)
 
     return (
         <tr>
             <td><NavButtons/></td>
-            <td>Catshit 1</td>
-            <td>00:00:01:39</td>
-            <td>Atmosphere</td>
-            <td>3</td>
-            <td><DeactivateButton/></td>
+            <td>{craftName}</td>
+            <td>00:00:00:00</td>
+            <td>{location}</td>
+            <td>{deltaV}</td>
+            <td><DeactivateButton deactivate = {deactivate}/></td>
         </tr>
     )
 }

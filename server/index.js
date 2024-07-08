@@ -29,11 +29,16 @@ let TEST_DATA = [
         deltaV: 3,
         currLocation : mapArray[1],
         },
-]
+        {
+            id: 2,
+            craftName: "Luna 4",
+            deltaV: 5,
+            currLocation : mapArray[4],
+        },
+    ]
 
 
-
-let globalID = 2
+let globalID = 3
 
 
 //Routes/endpoints
