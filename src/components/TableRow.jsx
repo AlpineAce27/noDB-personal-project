@@ -10,18 +10,21 @@ import DeactivateButton from './DeactivateButton'
 const TableRow = (props) => {
   
     //import the delete row functionality to send down the parent/child chain
-  const deactivate = props.deactivate
-  const setCurrentData = props.setCurrentData
+    const deactivate = props.deactivate
+    const setCurrentData = props.setCurrentData
+    
+    //import the navigate buttons functionality to send down the parent/child chain
+    const navigate = props.navigate
   
-  //setting up state values
-  const [craftName, setcraftName] = useState(props.craft.craftName)
-  const [launchTime, setLaunchTime] = useState(props.launchTime)
-  const [deltaV, setDeltaV] = useState(props.craft.deltaV)
-  const [location, setLocation] = useState(props.craft.currLocation)
+    //setting up state values
+    const [location, setLocation] = useState(props.craft.currLocation)
+    const [launchTime, setLaunchTime] = useState(props.launchTime)
+    const [deltaV, setDeltaV] = useState(props.craft.deltaV)
+    const [craftName, setcraftName] = useState(props.craft.craftName)
 
     return (
         <tr>
-            <td><NavButtons/></td>
+            <td><NavButtons location = {location}/></td>
             <td>{craftName}</td>
             <td>{launchTime}</td>
             <td>{location}</td>

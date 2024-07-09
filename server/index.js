@@ -38,10 +38,17 @@ let TEST_DATA = [
         deltaV: 5,
         currLocation : mapArray[4],
         },
+        {
+        id: 3,
+        craftName: "Dragon",
+        launchTime: "2024-07-09-0722-19",
+        deltaV: 5,
+        currLocation : mapArray[2],
+        },
     ]
 
 
-let globalID = 3
+let globalID = TEST_DATA.length //(this would start at 0 if there were no test data)
 
 
 //Routes/endpoints
@@ -52,12 +59,15 @@ app.get('/api/allVehicles', (request, response) => {
 
 //add a vehicle to the list
 app.post('/api/Vehicle', (req, res) => {
+    
+    //use body obj to send data for larger or sensative data (params would show up in the url)
+    const vehicleObject = req.body //creates a new vehicle object and gives it the properties of the req.body
 
-    const vehicleObject = req.body //use body obj to send data for larger or sensative data
-
+    //add additional properties to the new vehicle
     vehicleObject.id = globalID
     vehicleObject.currLocation = mapArray[0]
 
+    //add the vehicle to the data array
     TEST_DATA.push(vehicleObject)
 
     globalID++
@@ -98,7 +108,6 @@ app.put('/api/vehicle/:id/:direction', (req, res) => {
     //assign the vehicle it's new location
     editVehicle.currLocation = mapArray[locationIndex]
     console.log (editVehicle.craftName + " moved to: " + editVehicle.currLocation)
-
 
     //send back the updated TEST_DATA array
     res.status(200).send(TEST_DATA)

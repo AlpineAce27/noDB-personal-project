@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import TableRow from "./TableRow";
 
-function VehicleTable() {
-  
+function VehicleTable(props) {
+
+  const currentData = props.currentData
+  const setCurrentData = props.setCurrentData
+
   useEffect(() => {
     getAllVehicles()
   }, [])
 
-  const [currentData, setCurrentData] = useState([])
+
 
   //create a function that uses axios to get TEST_DATA from server
   const getAllVehicles = () => {
@@ -28,12 +31,15 @@ const deactivate = (id2kill) => {
  const rowsArray = currentData.map((el) => {
   return (
       <TableRow
+          //pass down the whole craft element
           craft = {el}
+          //pass down each individual property of the craft element
           key={el.id}
           craftName={el.craftName}
           launchTime = {el.launchTime}
           deltaV={el.deltaV}
           location = {el.location}
+          //pass down the functions that the buttons will need
           navigate={() => navigate(el.id, direction)}
           deactivate={() => deactivate(el.id)}
           setCurrentData={setCurrentData}
@@ -49,7 +55,7 @@ const deactivate = (id2kill) => {
           <tr id="header">
             <th>{/*space above the navigate buttons*/}</th>
             <th>Craft Name</th>
-            <th>Mission Clock</th>
+            <th>Launch Date</th>
             <th>Location</th>
             <th>DeltaV</th>
             <th>{/*space above the deactivate buttons*/}</th>
