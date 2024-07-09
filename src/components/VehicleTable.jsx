@@ -27,6 +27,13 @@ const deactivate = (id2kill) => {
   })
 }
 
+//create a function that navigates a vehicel forward or backward
+const navigate = (id, direction) => {
+  axios.put(`/api/vehicle/${id}/${direction}`).then((response) => {
+    setCurrentData(response.data)
+  })
+}
+
  //create an array of table rows
  const rowsArray = currentData.map((el) => {
   return (
@@ -40,7 +47,7 @@ const deactivate = (id2kill) => {
           deltaV={el.deltaV}
           location = {el.location}
           //pass down the functions that the buttons will need
-          navigate={() => navigate(el.id, direction)}
+          navigate={navigate}
           deactivate={() => deactivate(el.id)}
           setCurrentData={setCurrentData}
       />

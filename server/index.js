@@ -71,7 +71,7 @@ app.post('/api/Vehicle', (req, res) => {
     TEST_DATA.push(vehicleObject)
 
     globalID++
-    console.log(vehicleObject)
+    //console.log(vehicleObject)
     res.status(201).send(TEST_DATA)
 })
 

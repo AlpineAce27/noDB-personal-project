@@ -15,16 +15,18 @@ const TableRow = (props) => {
     
     //import the navigate buttons functionality to send down the parent/child chain
     const navigate = props.navigate
-  
+    const craftID = props.craft.id
+
     //setting up state values
     const [location, setLocation] = useState(props.craft.currLocation)
     const [launchTime, setLaunchTime] = useState(props.launchTime)
     const [deltaV, setDeltaV] = useState(props.craft.deltaV)
     const [craftName, setcraftName] = useState(props.craft.craftName)
+    
 
     return (
         <tr>
-            <td><NavButtons location = {location}/></td>
+            <td><NavButtons navigate = {navigate} id = {craftID} location = {location}/></td>
             <td>{craftName}</td>
             <td>{launchTime}</td>
             <td>{location}</td>
